@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Stellar Solutions</title>
+    <title>Payment Required | Stellar Solutions</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -62,6 +62,11 @@
         #main-content {
             display: none; /* Hidden until splash screen fades */
         }
+        
+        /* Payment notice styling */
+        .payment-notice {
+            border-left: 4px solid #F59E0B;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -77,37 +82,95 @@
 
     <!-- Main Content of the Website -->
     <div id="main-content" class="min-h-screen flex flex-col items-center justify-center p-4">
-        <div class="w-full max-w-lg">
+        <div class="w-full max-w-2xl">
+            <!-- Payment Notice -->
+            <div class="payment-notice bg-amber-50 p-6 rounded-lg mb-8">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-lg font-medium text-amber-800">Payment Required</h3>
+                        <div class="mt-2 text-sm text-amber-700">
+                            <p>Our services are currently suspended due to a pending payment to HMI Company. To restore full functionality, please complete the payment process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Contact Us</h2>
-                <p class="text-center text-gray-600 mb-8">Have a question? We'd love to hear from you.</p>
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Payment Required</h2>
+                <p class="text-center text-gray-600 mb-8">Please complete payment to restore service</p>
                 
-                <!-- Your new Formspree form -->
-                <form action="https://formspree.io/f/xgvlrokk"
-  method="POST"
->
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                            Your email:
-                        </label>
-                        <input id="email" type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition">
+                <!-- Payment Information -->
+                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Payment Details</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Recipient:</span>
+                            <span class="font-medium">HMI Company</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Amount Due:</span>
+                            <span class="font-medium">$XXX.XX</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Invoice #:</span>
+                            <span class="font-medium">INV-2023-001</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Due Date:</span>
+                            <span class="font-medium">MM/DD/YYYY</span>
+                        </div>
                     </div>
-                    
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-                            Your message:
-                        </label>
-                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+                </div>
+                
+                <!-- Payment Instructions -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Payment Instructions</h3>
+                    <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                        <li>Please transfer the amount due to the account details provided below</li>
+                        <li>Include your invoice number in the payment reference</li>
+                        <li>Once payment is completed, email the transaction details to accounting@stellar-solutions.com</li>
+                        <li>Service will be restored within 24 hours of payment verification</li>
+                    </ol>
+                </div>
+                
+                <!-- Bank Details -->
+                <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Bank Transfer Information</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Bank Name:</span>
+                            <span class="font-medium">HMI Bank</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Account Name:</span>
+                            <span class="font-medium">HMI Company</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Account Number:</span>
+                            <span class="font-medium">XXXX XXXX XXXX XXXX</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Routing Number:</span>
+                            <span class="font-medium">XXXXXXX</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">SWIFT/BIC:</span>
+                            <span class="font-medium">XXXXXX</span>
+                        </div>
                     </div>
-
-                    <!-- your other form fields go here -->
-                    
-                    <div>
-                        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
-                            Send
-                        </button>
-                    </div>
-                </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="text-center">
+                    <p class="text-gray-600 mb-2">Need assistance with payment?</p>
+                    <p class="text-blue-600 font-medium">Contact our accounts department at accounting@stellar-solutions.com</p>
+                    <p class="text-gray-500 text-sm mt-2">Or call +1 (555) 123-4567 during business hours (9AM-5PM EST)</p>
+                </div>
             </div>
         </div>
     </div>
@@ -134,4 +197,3 @@
 
 </body>
 </html>
-
