@@ -67,6 +67,38 @@
         .payment-notice {
             border-left: 4px solid #F59E0B;
         }
+        
+        /* Currency symbol styling */
+        .currency {
+            position: relative;
+            top: -0.5em;
+            font-size: 0.7em;
+            margin-right: 2px;
+        }
+        
+        /* Highlight important information */
+        .highlight {
+            background-color: #FFFBEB;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #FCD34D;
+        }
+        
+        /* Payment button animation */
+        @keyframes pulse-gentle {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1), 0 2px 4px -1px rgba(239, 68, 68, 0.06);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.2), 0 4px 6px -2px rgba(239, 68, 68, 0.1);
+            }
+        }
+        
+        .animate-pulse-gentle {
+            animation: pulse-gentle 2s infinite;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -114,11 +146,31 @@
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Amount Due:</span>
-                            <span class="font-medium">2,000.00</span>
+                            <span class="font-medium"><span class="currency">₹</span>2,000.00 (Rupees Two Thousand Only)</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Due Date:</span>
                             <span class="font-medium">14.09.2025</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Invoice #:</span>
+                            <span class="font-medium">INV-2025-0914</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Important Notice -->
+                <div class="highlight mb-6">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-amber-700">
+                                <strong>Important:</strong> Services will be suspended until payment is received. Please complete payment by the due date to avoid service interruption.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -128,7 +180,7 @@
                     <h3 class="text-lg font-semibold text-gray-800 mb-3">Payment Instructions</h3>
                     <ol class="list-decimal pl-5 space-y-2 text-gray-700">
                         <li>Please transfer the amount due to the account details provided below</li>
-                        <li>Include your invoice number in the payment reference</li>
+                        <li>Include your invoice number <span class="font-semibold">(INV-2025-0914)</span> in the payment reference</li>
                         <li>Once payment is completed, email the transaction details to accounting@stellar-solutions.com</li>
                         <li>Service will be restored within 24 hours of payment verification</li>
                     </ol>
@@ -151,18 +203,26 @@
                             <span class="font-medium">XXXX XXXX XXXX XXXX</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Routing Number:</span>
-                            <span class="font-medium">XXXXXXX</span>
+                            <span class="text-gray-600">IFSC Code:</span>
+                            <span class="font-medium">HMIXXXXXXX</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">SWIFT/BIC:</span>
-                            <span class="font-medium">XXXXXX</span>
+                            <span class="font-medium">HMIINBBXXX</span>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Payment Button -->
+                <div class="text-center mt-8">
+                    <p class="text-gray-600 mb-4">Already made the payment?</p>
+                    <button class="animate-pulse-gentle bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-all duration-300">
+                        Confirm Payment
+                    </button>
+                </div>
+                
                 <!-- Contact Information -->
-                <div class="text-center">
+                <div class="text-center mt-8 pt-6 border-t border-gray-200">
                     <p class="text-gray-600 mb-2">Need assistance with payment?</p>
                     <p class="text-blue-600 font-medium">Contact our accounts department at accounting@stellar-solutions.com</p>
                     <p class="text-gray-500 text-sm mt-2">Or call +1 (555) 123-4567 during business hours (9AM-5PM EST)</p>
@@ -193,4 +253,3 @@
 
 </body>
 </html>
-
